@@ -1,0 +1,1 @@
+export const genreList = state => state.genre.genre

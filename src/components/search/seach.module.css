@@ -1,0 +1,13 @@
+.formSearch{
+    text-align: center
+}
+.input{
+    background-color: inherit;
+    color: #fff
+  }
+  .input::placeholder{
+    color: #fff;
+  }
+  .btnFind{
+    background-color: inherit;
+  }
