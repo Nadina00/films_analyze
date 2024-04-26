@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import.meta.env.VITE_SOME_KEY;
 
-const APP_KEY = "4bceebe1d1f9bc99c966449bdeaecb86";
+const APP_KEY = import.meta.env.VITE_SOME_KEY;
 
 const filmList = createAsyncThunk("films/filmList", async (page) => {
   try {

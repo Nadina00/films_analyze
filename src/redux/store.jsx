@@ -1,30 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
-import {
-  persistStore,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
-
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import logger from "redux-logger";
 import filmsReducer from "./film-slice";
-import genreReducer from "./genre-slice"
+import genreReducer from "./genre-slice";
 
 // Persisting token field from auth slice to localstorage
 
+const filmsPersistConfig = {
+  key: "films",
+  storage,
+  whitelist: ["current"],
+};
+
 export const store = configureStore({
   reducer: {
-    films: filmsReducer,
-    genre: genreReducer
+    films: persistReducer(filmsPersistConfig, filmsReducer),
+    genre: genreReducer,
   },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export const persistor = persistStore(store);

@@ -6,7 +6,7 @@ import Home from "./page/Home";
 function App() {
   return (
     <>
-      <Routes>
+      <Routes basename="/FilmsAnalyze">
         <Route path="/" element={<Home />} />
        
       </Routes>
