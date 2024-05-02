@@ -93,7 +93,7 @@ export const Header = () => {
         <Link
           className={css.link}
           to={
-            "https://public.tableau.com/app/profile/nadiya.kovalenko/viz/FILM_17121332044380/Sheet5"
+            "https://public.tableau.com/app/profile/nadiya.kovalenko/viz/films_analyze/Dashboard1#1"
           }
         >
           Analyze
